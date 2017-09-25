@@ -1,0 +1,25 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Essentially a dating app. Uses Express JS.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiglaze/FriendFinder.git"
+  },
+  "keywords": [
+    "friend",
+    "finder",
+    "Express"
+  ],
+  "author": "Kristin Iris Glaze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiglaze/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/kiglaze/FriendFinder#readme"
+}
