@@ -12,6 +12,8 @@
 
 	<!-- Font Awesome Glyphicons -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../assets/css/style.css">
+	<link rel="stylesheet" href="../../assets/css/surveyStyle.css">
 
 	<!-- Chosen -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
@@ -159,7 +161,7 @@
 		<hr>
 	    <footer class="footer">
 	      <div class="container">
-		        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a></p>
+		        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/kiglaze/friendfinder">GitHub Repo</a></p>
 	      </div>
 	    </footer>
 
@@ -237,10 +239,13 @@
 	    	// AJAX post the data to the friends API. 
 	    	$.post(currentURL + "/api/friends", userData, function(data){
 
-	    		console.log(data);
 	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
-	    		$("#matchName").text(data.name);
-	    		$('#matchImg').attr("src", data.photo);
+	    		if(data !== null) {
+		    		$("#matchName").text(data.name);
+		    		$('#matchImg').attr("src", data.photo);
+	    		} else {
+	    			$("#matchName").text("You are the first to fill out a survey, so we don't have a match for you yet! Sorry.");
+	    		}
 
 		    	// Show the modal with the best match 
 		    	$("#resultsModal").modal('toggle');

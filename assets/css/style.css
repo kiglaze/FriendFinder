@@ -1,0 +1,10 @@
+body {
+    background-color: rgb(207, 218, 209);
+}
+button.btn.btn-primary {
+    background-color: rgb(236,210,162);
+    border: 2px solid rgb(0,0,0);
+}
+.jumbotron {
+	background-color: rgba(238, 238, 238, 0.58);
+}

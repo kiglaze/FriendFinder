@@ -22,4 +22,12 @@ app.get("/survey", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/survey.html"));
 });
 
+app.get("/assets/css/surveyStyle.css", function(req, res) {
+  res.sendFile(path.join(__dirname, "../../assets/css/surveyStyle.css"));
+});
+
+app.get("/assets/css/style.css", function(req, res) {
+  res.sendFile(path.join(__dirname, "../../assets/css/style.css"));
+});
+
 module.exports = app;
