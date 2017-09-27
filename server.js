@@ -18,13 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "app/public/home.html"));
-});
-
-app.get("/survey", function(req, res) {
-  res.sendFile(path.join(__dirname, "app/public/survey.html"));
-});
+app.use('/', require('./app/routing/htmlRoutes'));
 
 app.get("/api/friends", function(req, res) {
   res.json(FriendsList.getAllFriends());
