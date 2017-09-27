@@ -82,14 +82,7 @@ app.get("/add/test/friends", function(req, res) {
   res.json(FriendsList.getAllFriends());
 });
 
-app.get("/test", function(req, res) {
-  console.log(FriendsList.parseIntArrayContents(
-  	["1","2","3","4","5","1","2","3","4","5"]
-  	));
-});
-
 app.post("/api/friends", function(req, res) {
-	console.log(req.body);
 	var addedPersonObj = req.body;
 	var closestMatchPersonObj = FriendsList.findClosestMatch(addedPersonObj.scores);
 	FriendsList.addFriend(
@@ -97,7 +90,6 @@ app.post("/api/friends", function(req, res) {
 		addedPersonObj.photo,
 		addedPersonObj.scores
 		);
-	console.log(closestMatchPersonObj);
 	res.json(closestMatchPersonObj);
 });
 

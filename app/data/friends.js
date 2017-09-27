@@ -33,13 +33,6 @@ Friends.prototype.findClosestMatch = function(myScoresArr) {
 	return closestMatch;
 }
 
-Friends.prototype.testDifferenceCalc = function(myScoresArr, otherScoresArr) {
-	return calculateScoresDifference(myScoresArr, otherScoresArr);
-};
-Friends.prototype.parseIntArrayContents = function(arr) {
-	return parseIntArrayContents(arr);
-};
-
 function calculateScoresDifference(myScoresArr, otherScoresArr) {
 	if(!Array.isArray(myScoresArr) || !Array.isArray(otherScoresArr)) {
 		throw "Score arrays must be in array form for comparison.";
@@ -51,7 +44,6 @@ function calculateScoresDifference(myScoresArr, otherScoresArr) {
 	for(var i = 0; i < myScoresArr.length; i++) {
 		difference += Math.abs(parseInt(myScoresArr[i]) - parseInt(otherScoresArr[i]));
 	}
-	console.log(difference);
 	return difference;
 }
 
