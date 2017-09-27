@@ -30,8 +30,8 @@ app.get("/api/friends", function(req, res) {
   res.json(FriendsList.getAllFriends());
 });
 
-app.post("/api/friends", function(req, res) {
-	FriendsList.addFriend(
+app.get("/add/test/friends", function(req, res) {
+		FriendsList.addFriend(
 		"Hannah Montana", 
 		"https://cdn1.edgedatg.com/aws/v2/dch/HannahMontana/slide/552583/97ff950c845a40ad1b465f97dfc377b1/1000x405-Q100_97ff950c845a40ad1b465f97dfc377b1.jpg",
 		[
@@ -47,6 +47,58 @@ app.post("/api/friends", function(req, res) {
 	      1
 		]
 		);
+		FriendsList.addFriend(
+		"Ginny Weasley", 
+		"http://akns-images.eonline.com/eol_images/Entire_Site/2017210/rs_722x1024-170310112200-634.Bonnie-Wright-Rupert-Grint.ms.031017.jpg",
+		[
+	      4,
+	      3,
+	      2,
+	      2,
+	      1,
+	      5,
+	      2,
+	      1,
+	      4,
+	      5
+		]
+		);
+		FriendsList.addFriend(
+		"Emma Watson", 
+		"https://assets.vogue.com/photos/58aa4e25e2fa2b55f494c592/master/pass/square-holding-emma-watson-custom-oscar-de-la-renta.jpg",
+		[
+	      3,
+	      3,
+	      3,
+	      3,
+	      3,
+	      3,
+	      3,
+	      3,
+	      3,
+	      3
+		]
+		);
+  res.json(FriendsList.getAllFriends());
+});
+
+app.get("/test", function(req, res) {
+  console.log(FriendsList.parseIntArrayContents(
+  	["1","2","3","4","5","1","2","3","4","5"]
+  	));
+});
+
+app.post("/api/friends", function(req, res) {
+	console.log(req.body);
+	var addedPersonObj = req.body;
+	var closestMatchPersonObj = FriendsList.findClosestMatch(addedPersonObj.scores);
+	FriendsList.addFriend(
+		addedPersonObj.name, 
+		addedPersonObj.photo,
+		addedPersonObj.scores
+		);
+	console.log(closestMatchPersonObj);
+	res.json(closestMatchPersonObj);
 });
 
 // Starts the server to begin listening
